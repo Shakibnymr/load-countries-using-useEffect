@@ -17,16 +17,19 @@ fetch('https://restcountries.com/v3.1/all')
 
 const handleVisitedCountry = country =>{
     console.log('add this to your visited country')
-    console.log(country)
+    const newVisitedCountries = [...visitedCountries,country]
+    setVisitedCountries(newVisitedCountries)
 }
     return (
         <div >
             <h2>Countries: {countries.length}</h2>
 
 <div>
-    <h2>Visited Countries: </h2>
+    <h2>Visited Countries: {visitedCountries.length} </h2>
     <ul>
-
+{
+    visitedCountries.map(country => <li key={country.cca3}>{country.name.common}</li>)
+}
     </ul>
 </div>
 
